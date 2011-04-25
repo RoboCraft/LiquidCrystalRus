@@ -7,7 +7,7 @@
 #include <avr/pgmspace.h>
 #include "WProgram.h"
 
-// except 0401 --> 0xa2 = ®, 0451 --> 0xb5
+// except 0401 --> 0xa2 = –Å, 0451 --> 0xb5 = —ë
 PROGMEM prog_uchar utf_recode[] = 
 {
     0x41,0xa0,0x42,0xa1,0xe0,0x45,0xa3,0xa4,0xa5,0xa6,0x4b,0xa7,0x4d,0x48,0x4f,
@@ -30,9 +30,9 @@ void LiquidCrystalRus::write(uint8_t value)
             value &= 0x3f;
             
             if (!utf_hi_char && value == 1)
-                out_char = 0xa2; // ®
+                out_char = 0xa2; // –Å
             else if (utf_hi_char == 1 && value == 0x11)
-                out_char = 0xb5; // ∏
+                out_char = 0xb5; // —ë
             else
                 out_char = pgm_read_byte_near(utf_recode + value + (utf_hi_char << 6) - 0x10);
 
