@@ -11,40 +11,35 @@
 #define LIQUIDCRYSTALRUS_H
 
 #include <inttypes.h>
+#include "PinDriver.h"
+#include "LiquidCrystalExt.h"
+/* You'll need to write
+ *   #include "PinDriver.h"
+ *   #include "LiquidCrystalExt.h"
+ * in your sketch.
+ */
 
-class LiquidCrystalRus : public LiquidCrystal
+class LiquidCrystalRus: public LiquidCrystal
 {
 public:
-    LiquidCrystalRus(uint8_t rs, uint8_t enable,
-        uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
-        uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7):
-        LiquidCrystal(rs, enable, d0, d1, d2, d3, d4, d5, d6, d7)
-    {
-    }
-    
-    LiquidCrystalRus(uint8_t rs, uint8_t rw, uint8_t enable,
-        uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
-        uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7):
-        LiquidCrystal(rs, rw, enable, d0, d1, d2, d3, d4, d5, d6, d7)
-    {
-    }
-    
-    LiquidCrystalRus(uint8_t rs, uint8_t rw, uint8_t enable,
-        uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3):
-        LiquidCrystal(rs, rw, enable, d0, d1, d2, d3)
-    {
-    }
-    
-    LiquidCrystalRus(uint8_t rs, uint8_t enable,
-        uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3):
-        LiquidCrystal(rs, enable, d0, d1, d2, d3)
-    {
-    }
+  LiquidCrystalRus(uint8_t rs, uint8_t enable,
+    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
+    uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7, PinDriver *pin_driver = 0);
 
-    virtual void write(uint8_t);
-  
+  LiquidCrystalRus(uint8_t rs, uint8_t rw, uint8_t enable,
+    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
+    uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7, PinDriver *pin_driver = 0);
+
+  LiquidCrystalRus(uint8_t rs, uint8_t rw, uint8_t enable,
+    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3, PinDriver *pin_driver = 0);
+
+  LiquidCrystalRus(uint8_t rs, uint8_t enable,
+    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3, PinDriver *pin_driver = 0);
+    
+  virtual void write(uint8_t);
+
 private:
-    uint8_t utf_hi_char; // UTF-8 high part
+  uint8_t utf_hi_char; // UTF-8 high part
 };
 
 #endif // LIQUIDCRYSTALRUS_H
