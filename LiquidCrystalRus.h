@@ -11,10 +11,10 @@
 #define LIQUIDCRYSTALRUS_H
 
 #include <inttypes.h>
-#include "PinDriver.h"
+#include "LineDriver.h"
 #include "LiquidCrystalExt.h"
 /* You'll need to write
- *   #include "PinDriver.h"
+ *   #include "LineDriver.h"
  *   #include "LiquidCrystalExt.h"
  * in your sketch.
  */
@@ -24,17 +24,17 @@ class LiquidCrystalRus: public LiquidCrystal
 public:
   LiquidCrystalRus(uint8_t rs, uint8_t enable,
     uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
-    uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7, PinDriver *pin_driver = 0);
+    uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7, LineDriver *line_driver = 0);
 
   LiquidCrystalRus(uint8_t rs, uint8_t rw, uint8_t enable,
     uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,
-    uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7, PinDriver *pin_driver = 0);
+    uint8_t d4, uint8_t d5, uint8_t d6, uint8_t d7, LineDriver *line_driver = 0);
 
   LiquidCrystalRus(uint8_t rs, uint8_t rw, uint8_t enable,
-    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3, PinDriver *pin_driver = 0);
+    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3, LineDriver *line_driver = 0);
 
   LiquidCrystalRus(uint8_t rs, uint8_t enable,
-    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3, PinDriver *pin_driver = 0);
+    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3, LineDriver *line_driver = 0);
     
   virtual void write(uint8_t);
 
