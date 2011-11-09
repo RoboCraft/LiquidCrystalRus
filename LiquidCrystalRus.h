@@ -4,6 +4,8 @@
  * (http://www.blogger.com/profile/11932466603117832284),
  * and was rewritten to support modern versions of LiquidCrystal.
  *
+ * See the article about LCDs based on HD44780 at http://robocraft.ru/blog/arduino/503.html
+ * 
  * (C) 2011 Artem Borisovskiy, bytefu@gmail.com
  *
  * This library is free software; you can redistribute it and/or
