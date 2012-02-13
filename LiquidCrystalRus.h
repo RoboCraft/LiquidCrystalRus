@@ -51,8 +51,12 @@ public:
 
   LiquidCrystalRus(uint8_t rs, uint8_t enable,
     uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3, LineDriver *line_driver = 0);
-    
-  virtual void write(uint8_t);
+  
+  #if defined(ARDUINO) && ARDUINO >= 100
+  virtual size_t write(uint8_t data);
+  #else
+  virtual void write(uint8_t data);
+  #endif
 
 private:
   uint8_t utf_hi_char; // UTF-8 high part
